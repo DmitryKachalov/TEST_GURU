@@ -1,46 +1,37 @@
-frontend = Category.create(title: 'Frontend')
-backend = Category.create(title: 'Backend')
-mobile = Category.create(title: 'Mobile Development')
+categories = Category.create(
+    [{ title: 'backend' },
+            { title: 'frontend' }])
 
-# Users
-
-john = User.create(name: 'John', email: 'john@testmail.org', role: 'user')
-daniel = User.create(name: 'Daniel', email: 'daniel007@yahoomail.org', role: 'user')
-bill = User.create(name: 'Bill', email: 'BillyBo@gmailtest.org', role: 'admin')
-
-# Tests
-
-html = frontend.tests.create(title: 'HTML', level: 0, author: john)
-css = frontend.tests.create(title: 'CSS', level: 1, author: john)
-ruby = backend.tests.create(title: 'Ruby', level: 2, author: bill)
-go_lang = backend.tests.create(title: 'Go', level: 3, author: bill)
-swift = mobile.tests.create(title: 'Swift', level: 4, author: daniel)
-
-# Questions
-
-questions = Question.create(
-    [{ body: 'What is the use of figure tag in HTML 5?', test: html },
-     { body: 'What are the entities in HTML?', test: html },
-     { body: 'In how many ways you can compare Ruby string?', test: ruby },
-     { body: 'What are Ruby arrays and how they can be created?', test: ruby },
-     { body: 'Why should one use Go programming language?', test: go_lang },
-     { body: 'Why should one use Swift programming language in 2018?', test: swift }]
+tests = Test.create!(
+    [{ title: 'HTML', level: 0, category_id: categories[1].id },
+             { title: 'CSS', level: 1, category_id: categories[1].id },
+             { title: 'Ruby', level: 2, category_id: categories[0].id },
+             { title: 'Go', level: 3, category_id: categories[0].id }]
 )
 
-# Answers
-
-Answer.create(
-    [{ body: 'Correct answer to HTML', correct: true, question: questions[0] },
-     { body: 'Incorrect answer to HTML', correct: false, question: questions[0] },
-     { body: 'Correct answer to Ruby', correct: true, question: questions[2] },
-     { body: 'Correct answer to Ruby', correct: false, question: questions[2] }]
+questions = Question.create!(
+    [{ body: 'What is the use of figure tag in HTML 5?', test_id: tests[0].id },
+     { body: 'Which selector allows you to access each element of a web page?', test_id: tests[1].id },
+     { body: 'In how many ways you can compare Ruby string?', test_id: tests[2].id },
+     { body: 'Why should one use Go programming language?', test_id: tests[3].id }]
 )
 
-# Results
-
-TestPassage.create(
-    [{ user: john, test: html, status: 'Finished' },
-     { user: john, test: css, status: 'Not started' },
-     { user: daniel, test: ruby, status: 'Not finished' },
-     { user: bill, test: go_lang, status: 'Finished' }]
+Answer.create!(
+    [{ body: 'Correct answer to HTML', correct: true, question_id: questions[0].id },
+     { body: 'Incorrect answer to HTML', correct: false, question_id: questions[0].id },
+     { body: 'Correct answer to CSS', correct: true, question_id: questions[1].id },
+     { body: 'Incorrect answer to CSS', correct: false, question_id: questions[1].id },
+     { body: 'Correct answer to Ruby', correct: true, question_id: questions[2].id },
+     { body: 'Incorrect answer to Ruby', correct: false, question_id: questions[2].id },
+     { body: 'Correct answer to Go', correct: true, question_id: questions[3].id },
+     { body: 'Incorrect answer to Go', correct: false, question_id: questions[3].id }]
 )
+
+users = User.create!([{ name: 'admin', email: 'admin@mail.org', role: 'admin' },
+                      { name: 'user', email: 'user@mail.org', role: 'user' }])
+
+TestPassage.create!([{ user_id: users[1].id, test_id: tests[0].id, status: 'finish' },
+                     { user_id: users[1].id, test_id: tests[1].id, status: 'finish' },
+                     { user_id: users[1].id, test_id: tests[2].id, status: 'finish' },
+                     { user_id: users[1].id, test_id: tests[3].id, status: 'not started' }])
+
