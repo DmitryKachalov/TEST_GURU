@@ -8,7 +8,8 @@ class Test < ApplicationRecord
   has_many :test_passages
   has_many :users, through: :test_passages
 
-
+  # у теста есть свой автор из класса Юзер
+  belongs_to :author, class_name: 'User'
 
 
   def self.sort_by_category(category_title)
