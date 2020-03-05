@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 class Test < ApplicationRecord
+  # один тест связан с 1 категорией
+  belongs_to :category
+
+
+
+
   def self.sort_by_category(category_title)
     joins('join categories on tests.category_id = categories.id')
         .where(categories: { title: category_title })
