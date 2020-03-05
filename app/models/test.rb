@@ -4,6 +4,9 @@ class Test < ApplicationRecord
   belongs_to :category
   # у одного теста много вопросов
   has_many :questions
+  # несколько тестов могут проходить юзеры
+  has_many :test_passages
+  has_many :users, through: :test_passages
 
 
 
