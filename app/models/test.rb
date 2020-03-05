@@ -2,6 +2,8 @@
 class Test < ApplicationRecord
   # один тест связан с 1 категорией
   belongs_to :category
+  # у одного теста много вопросов
+  has_many :questions
 
 
 
