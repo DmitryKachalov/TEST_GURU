@@ -6,6 +6,8 @@ class User < ApplicationRecord
   # Юзер может создать несколько тестов
   has_many :tests_created, class_name: 'Test', foreign_key: :author_id, dependent: :nullify
 
+  validates :name, :email, :role, presence: true
+
   def by_level(level)
     tests.where(level: level)
   end
