@@ -4,4 +4,5 @@ class Question < ApplicationRecord
   # у вопроса несколько ответов
   has_many :answers, dependent: :destroy
 
+  validates :body, presence: true
 end
