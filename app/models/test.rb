@@ -14,8 +14,7 @@ class Test < ApplicationRecord
             uniqueness: { scope: :level,
                           message: 'Title and Level must be unique' }
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validate :validate_max_level, on: :create
-
+  
   default_scope { order(title: :desc) }
   scope :level, ->(level) { where(level: level) }
   scope :by_category, ->(title_category) { joins(:category).where(categories: { title: title_category }) }
@@ -27,11 +26,5 @@ class Test < ApplicationRecord
   def self.sort_by_category(category_title)
     by_category(category_title)
       .pluck(:title)
-  end
-
-  private
-
-  def validate_max_level
-    errors.add(:level) if level.to_i > 10
   end
 end
