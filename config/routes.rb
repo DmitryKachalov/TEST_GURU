@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  root to: 'tests#index'
-  get '/tests/:category/:title', to: 'tests#search'
+  # root to: 'tests#index'
+  # get '/tests/:category/:title', to: 'tests#search'
 
   resources :tests do
-    member do
-      get :start
-    end
+    resources :questions, swallow: true
   end
 end
