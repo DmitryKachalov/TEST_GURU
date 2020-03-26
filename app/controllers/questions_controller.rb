@@ -1,9 +1,11 @@
 class QuestionsController < ApplicationController
 
-  before_action :find_test, only: [:new, :create, :index]
-  before_action :find_question, only: :show
+  before_action :find_test, only: %i[new create index]
+  before_action :find_question, only: %i[show destroy]
   skip_before_action :verify_authenticity_token
 
+
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
   def index
     @questions = @test.questions
   end
@@ -42,7 +44,9 @@ class QuestionsController < ApplicationController
     params.require(:question).permit(:body)
   end
 
-
+  def rescue_with_question_not_found
+    render plain: 'Question was not found'
+  end
 
 end
 
