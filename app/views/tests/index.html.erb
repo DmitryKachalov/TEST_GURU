@@ -1,11 +1,14 @@
-<% @tests.each do |t| %>
-<div>
-  <h4>
-    Title: <%= t.title %>
-  </h4>
-  <p>
-    Test id: <%= t.id %>
-  </p>
-  <%= link_to 'Show', test_path(t.id) %>
-</div>
-<% end %>
+<h1>Tests</h1>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Level</th>
+  </tr>
+  <% @tests.each do |t| %>
+    <tr>
+      <td><%= t.title %></td>
+      <td><%= t.level %></td>
+      <td><%= link_to 'Show', test_path(t.id) %></td>
+    </tr>
+  <% end %>
+</table>
