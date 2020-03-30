@@ -7,7 +7,9 @@
   <%= @test.level %>
 </p>
 <p>
+  <%= link_to 'Edit', edit_test_path(@test) %>
   Questions <%= link_to 'Show', test_questions_path(@test.id) %>
+  <%= link_to 'Back', tests_path %>
 </p>
 
 
