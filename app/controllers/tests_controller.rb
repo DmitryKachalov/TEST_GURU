@@ -7,7 +7,7 @@ class TestsController < ApplicationController
   end
 
   def show
-    @test
+    @questions = @test.questions
   end
 
   def new
