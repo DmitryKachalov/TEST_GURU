@@ -1,6 +1,18 @@
-<h3>
-  Test id: <%= @test.id %>
-  Title: <%= @test.title %>
-  <br>
+<p>
+  <strong>Title:</strong>
+  <%= @test.title %>
+</p>
+<p>
+  <strong>Level:</strong>
+  <%= @test.level %>
+</p>
+<p>
+  <%= link_to 'Edit', edit_test_path(@test) %>
   Questions <%= link_to 'Show', test_questions_path(@test.id) %>
-</h3>
+  <%= link_to 'Back', tests_path %>
+</p>
+
+
+
+
+
