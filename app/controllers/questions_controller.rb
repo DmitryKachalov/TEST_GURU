@@ -13,21 +13,33 @@ class QuestionsController < ApplicationController
   def show; end
 
   def new
-    @test
+    @question = @test.questions.new
+  end
+
+  def edit
+    @question
   end
 
   def create
     @question = @test.questions.new(question_params)
     if @question.save
-      redirect_to test_question_path(@test, @question)
+      redirect_to @question
     else
-      render plain: 'Aborted'
+      render :new
+    end
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :edit
     end
   end
 
   def destroy
     @question.destroy
-    redirect_to test_questions_path(@question.test)
+    redirect_to test_question_path
   end
 
   private
