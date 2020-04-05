@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # get '/tests/:category/:title', to: 'tests#search'
 
   resources :tests do
-    resources :questions, swallow: true
+    resources :questions, shallow: true
   end
+
 end

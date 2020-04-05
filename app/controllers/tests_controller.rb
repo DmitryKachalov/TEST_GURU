@@ -7,16 +7,14 @@ class TestsController < ApplicationController
   end
 
   def show
-    @test
+    @questions = @test.questions
   end
 
   def new
     @test = Test.new
   end
 
-  def edit
-    @test
-  end
+  def edit; end
 
   def create
     @test = Test.new(test_params)
