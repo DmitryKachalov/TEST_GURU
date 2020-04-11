@@ -1,4 +1,5 @@
 class TestPassage < ApplicationRecord
+  SUCCESS_PERCENT = 85
   belongs_to :test
   belongs_to :user
   belongs_to :current_question, class_name: 'Question', optional: true
@@ -13,6 +14,18 @@ class TestPassage < ApplicationRecord
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
     save!
+  end
+
+  def test_questions_count
+    test.questions.count
+  end
+
+  def test_success
+    ((correct_questions / test_questions_count.to_f) * 100).round(0)
+  end
+
+  def successfully_completed?
+    test_success >= SUCCESS_PERCENT
   end
 
   private
