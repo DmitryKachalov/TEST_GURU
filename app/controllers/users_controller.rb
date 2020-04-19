@@ -9,6 +9,8 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to tests_path
     else
+      #Добавляем в сессию идентификатор пользователя после его регистрации
+      session[:user_id] = @user.id
       render :new
     end
   end
