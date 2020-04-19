@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     user = User.find_by(email: params[:email])
@@ -12,5 +11,10 @@ class SessionsController < ApplicationController
       flash.now[:fail] = 'Are you a Guru Verify your Email and Password please'
       render :new
     end
+  end
+
+  def destroy
+    reset_session
+    redirect_to signup_puth
   end
 end
