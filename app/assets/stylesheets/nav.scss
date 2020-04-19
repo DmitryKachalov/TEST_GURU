@@ -1,3 +1,14 @@
-.nav.user {
+.nav_container {
+  display: -webkit-flex;
+  display: flex;
+  padding: 0px;
+}
+
+.nav_container > li:last-child {
+  flex-grow: 1;
   text-align: right;
+}
+
+.nav_container > li {
+  list-style-type: none;
 }
