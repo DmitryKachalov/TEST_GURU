@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :check_email, only: :create
+
+
   def new
     @user = User.new
   end
@@ -16,6 +19,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def check_email
+
+  end
 
   def user_params
     params.require(:user).permit(:name, :role, :email, :password, :password_confirmation)

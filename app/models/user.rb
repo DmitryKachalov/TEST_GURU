@@ -9,6 +9,7 @@ class User < ApplicationRecord
   # Юзер может создать несколько тестов
   has_many :tests_created, class_name: 'Test', foreign_key: :author_id, dependent: :nullify
 
+  validates :email, presence: true, format: /.+@.+\..{2,}/, uniqueness: true
   has_secure_password
 
   def by_level(level)
