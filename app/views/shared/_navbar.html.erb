@@ -4,15 +4,15 @@
       <p><a href='/'>Test guru</a></p>
     </li>
     <li>
-      <% if logged_in? %>
+      <% if user_signed_in? %>
         <p>
-          Welcome, <b><%= current_user.name %></b> Guru
-          | <%= link_to 'Logout', logout_path, method: :delete %>
+          Welcome, <b><%= current_user.email %></b> Guru
+          | <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
         </p>
       <% else %>
         <p>
-          <%= link_to 'Sign in', login_path %>
-          |  <%= link_to 'Sign up', signup_path %>
+          <%= link_to 'Sign in', new_user_session_path %>
+          |  <%= link_to 'Sign up', new_user_registration_path %>
         </p>
       <% end %>
     </li>
