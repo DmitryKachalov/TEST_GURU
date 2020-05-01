@@ -18,7 +18,7 @@
 
   <p>
     <%= form.label :author_id %><br>
-    <%= form.collection_select :author_id, User.all, :id, :name, promt: true %>
+    <%= form.collection_select :author_id, User.all, :id, :first_name, promt: true %>
   </p><br>
   <p><%= form.submit %></p>
 <% end %>

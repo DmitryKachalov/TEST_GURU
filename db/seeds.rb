@@ -1,6 +1,5 @@
-# Category.create(
-#     [{ title: 'backend' },
-#             { title: 'frontend' }])
+ Category.create(
+     [{ title: 'backend' }, { title: 'frontend' }])
 
 # users = User.create!([{ name: 'admin', email: 'admin@mail.org', role: 'admin' },
 #                       { name: 'user', email: 'user@mail.org', role: 'user' }])
