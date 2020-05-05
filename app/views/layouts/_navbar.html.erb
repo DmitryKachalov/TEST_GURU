@@ -1,0 +1,22 @@
+<nav>
+  <ul class="nav_container">
+    <li>
+      <p><a href='/app/assets/config'>Test guru</a></p>
+    </li>
+    <li>
+      <% if user_signed_in? %>
+        <%= link_to 'Tests', tests_path %>
+      <% end %>
+<!--        <p>-->
+<!--          Welcome, <b><%#= current_user.email %></b> Guru-->
+<!--          | <%#= link_to 'Logout', destroy_user_session_path, method: :delete %>-->
+<!--        </p>-->
+      <%# else %>
+<!--        <p>-->
+          <%#= link_to 'Sign in', new_user_session_path %>
+<!--          |  <%#= link_to 'Sign up', new_user_registration_path %>-->
+<!--        </p>-->
+      <%# end %>
+    </li>
+  </ul>
+</nav>

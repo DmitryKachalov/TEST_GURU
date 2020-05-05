@@ -10,8 +10,24 @@
   </head>
 
   <body>
-  <%= render '/shared/navbar' %>
+  <%= render 'layouts/navbar' %>
+
+  <%= render 'shared/flash' %>
+
+  <% if user_signed_in? %>
+    <p class="nav_user">
+      Welcome, <b><%= current_user.email %></b> Guru |
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+    </p>
+  <% end %>
+
+  <div class="content">
     <%= yield %>
-    <%= render 'shared/footer' %>
+  </div>
+
+  <div class="footer">
+    <%= render 'layouts/footer' %>
+  </div>
+
   </body>
 </html>

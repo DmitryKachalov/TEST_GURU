@@ -1,9 +1,8 @@
-# Category.create(
-#     [{ title: 'backend' },
-#             { title: 'frontend' }])
+ # Category.create(
+ #     [{ title: 'backend' }, { title: 'frontend' }])
 
-# users = User.create!([{ name: 'admin', email: 'admin@mail.org', role: 'admin' },
-#                       { name: 'user', email: 'user@mail.org', role: 'user' }])
+ # User.create!([{ name: 'admin', email: 'admin@mail.org', type: 'admin' }])
+#                       { name: 'user', email: 'user@mail.org', role: 'user' }
 #
 # tests = Test.create!(
 #     [{ title: 'HTML', level: 0, category: categories[1], author: users[0] },
