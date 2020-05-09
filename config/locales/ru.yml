@@ -1,39 +1,95 @@
 ru:
-
   helpers:
+    select:
+      prompt: "Выберите значение"
     submit:
+      answer:
+        create: "Создать ответ"
+        update: "Сохранить ответ"
+      question:
+        create: "Создать вопрос"
+        update: "Сохранить вопрос"
       test:
-        create: "Создать Тест"
-        update: "Обновить Тест"
+        create: "Создать тест"
+        update: "Сохранить тест"
     label:
+      answer:
+        title: "Текст ответа"
+        correct: "Ответ верный"
+      question:
+        body: "Вопрос"
       test:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
-
-  shared:
-    errors:
-      header:
-        few: "Обнаружено %{count} ошибки"
-        many: "Обнаружено %{count} ошибок"
-        one: "Обнаружена %{count} ошибка"
-        other: "Обнаружено %{count} ошибоки"
-
-  tests:
-    index:
-      header: "Доступные тесты"
-
-  test_passages:
-    result:
-      header: "Тест %{title} успешно завршен!"
+    question_header:
+      new_question: "Новый вопрос для теста"
+      edit_question: "Изменить вопрос для теста"
 
   admin:
+    answers:
+      answer:
+        view: "Смотреть"
+        edit: "Изменить"
+        delete: "Удалить"
+        confirm_delete: "Удалить ответ?"
+      edit:
+        header: "Редактировать ответ"
+        back: "Назад"
+        question_header: "Вопрос:"
+      new:
+        header: "Новый ответ"
+        question_header: "Вопрос:"
+        back: "Назад"
+      show:
+        header: "Вопрос"
+        answer_header: "Текст ответа:"
+        is_correct: "Ответ верный:"
+        edit: "Изменить"
+        back: "Назад"
+    questions:
+      edit:
+        back: "Назад"
+      new:
+        back: "Назад"
+      show:
+        header: "Тест:"
+        question_header: "Текст вопроса:"
+        answers_header: "Ответы:"
+        new_answer: "+ Новый ответ"
+        edit: "Редактировать вопрос"
+        back: "Назад"
     tests:
-      create:
-        success: "Тест успешно сознан."
+      edit:
+        header: "Редактирование теста"
+        back: "Назад"
       index:
         header: "Тесты"
-
-  test_maier:
-    completed_test:
-      subject: "Вы успешно завершили тест на TestGuru!"
+        title: "Название"
+        category: "Категория"
+        level: "Уровень"
+        questions_number: "Число вопросов"
+        view: "Смотреть"
+        delete: "Удалить"
+        edit: "Изменить"
+        confirm_delete_test: "Удалить тест?"
+        new_test: "+ Новый тест"
+      new:
+        header: "Новый тест"
+        back: "Назад"
+      show:
+        confirm_delete_question: "Удалить вопрос?"
+        delete: "Удалить"
+        edit: "Изменить"
+        view: "Смотреть"
+        question: "Вопрос"
+        new_question: "+ Новый вопрос"
+        back: "Назад"
+  tests:
+    index:
+      header: "Тесты"
+      questions_number: "Число вопросов"
+      level: "Уровень"
+      category: "Категория"
+      title: "Название"
+      start: "Пройти тест"

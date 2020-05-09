@@ -1,9 +1,11 @@
 module QuestionsHelper
   def question_header(question)
     if question.new_record?
-      "Create New #{question.test.title} Question"
+      "#{I18n.t('helpers.question_header.new_question')}
+      '#{question.test.title}'"
     else
-      "Edit #{question.test.title} Question"
+      "#{I18n.t('helpers.question_header.edit_question')}
+      '#{question.test.title}'"
     end
   end
 end

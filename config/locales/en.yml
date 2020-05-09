@@ -1,36 +1,93 @@
 en:
   helpers:
     submit:
+      answer:
+        create: "Create answer"
+        update: "Save answer"
+      question:
+        create: "Create question"
+        update: "Save question"
       test:
-        create: "Create Test"
-        update: "Update Test"
+        create: "Create test"
+        update: "Save test"
     label:
+      answer:
+        title: "Answer text"
+        correct: "Correct answer"
+      question:
+        body: "Question"
       test:
         title: "Title"
         level: "Level"
         category_id: "Category"
+    question_header:
+      new_question: "New question for test"
+      edit_question: "Change question for test"
 
-  shared:
-    errors:
-      header:
-        one: "%{count} error detected"
-        other: "%{count} errors detected"
-
+  admin:
+    answers:
+      answer:
+        view: "View"
+        edit: "Edit"
+        delete: "Delete"
+        confirm_delete: "Delete answer?"
+      edit:
+        header: "Edit answer"
+        back: "Back"
+        question_header: "Question:"
+      new:
+        header: "New answer"
+        question_header: "Question:"
+        back: "Back"
+      show:
+        header: "Вопрос"
+        answer_header: "Answer:"
+        is_correct: "Correct answer:"
+        edit: "Edit"
+        back: "Back"
+    questions:
+      edit:
+        back: "Back"
+      new:
+        back: "Back"
+      show:
+        header: "Test:"
+        question_header: "Question text:"
+        answers_header: "Answers:"
+        new_answer: "+ New answer"
+        edit: "Edit question"
+        back: "Back"
+    tests:
+      edit:
+        header: "Edit test"
+        back: "Back"
+      index:
+        header: "Tests"
+        title: "Title"
+        category: "Category"
+        level: "Level"
+        questions_number: "Questions"
+        view: "View"
+        delete: "Delete"
+        edit: "Edit"
+        confirm_delete_test: "Delete test?"
+        new_test: "+ New test"
+      new:
+        header: "New test"
+        back: "Back"
+      show:
+        confirm_delete_question: "Delete question?"
+        delete: "Delete"
+        edit: "Edit"
+        view: "View"
+        question: "Question"
+        new_question: "+ New question"
+        back: "Back"
   tests:
     index:
       header: "Tests"
-
-  test_passages:
-    result:
-      header: "The %{title} Test was Completed!"
-
-  admin:
-    tests:
-      create:
-        success: "Test was successfully created."
-      index:
-        header: "Tests"
-
-  test_maier:
-    completed_test:
-      subject: "You just completed the TestGuru test!"
+      questions_number: "Questions #"
+      level: "Level"
+      category: "Category"
+      title: "Title"
+      start: "Start"
