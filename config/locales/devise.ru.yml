@@ -77,3 +77,9 @@ ru:
         few: "%{resource}: сохранение не удалось из-за %{count} ошибок"
         many: "%{resource}: сохранение не удалось из-за %{count} ошибок"
         other: "%{resource}: сохранение не удалось из-за %{count} ошибки"
+  admin:
+    navbar:
+      to_admin_panel: "Панель администратора"
+    shared:
+      navbar:
+        to_admin_panel: "Панель администратора"
