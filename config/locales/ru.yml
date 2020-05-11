@@ -92,4 +92,5 @@ ru:
       level: "Уровень"
       category: "Категория"
       title: "Название"
+    _test:
       start: "Пройти тест"

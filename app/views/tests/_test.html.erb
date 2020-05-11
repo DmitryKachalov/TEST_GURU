@@ -1,7 +1,7 @@
 <tr>
-  <th><%= test.id %></th>
-  <td><%= test.title %></td>
-  <td><%= test_level(test) %></td>
-  <td><%= test.questions.count %></td>
-  <td><%= button_to t('.start'), start_test_path(test) %></td>
+<!--  <th><%#= test.id %></th>-->
+  <th><%= test.title %></th>
+  <th><%= test_level(test) %></th>
+  <th><%= test.questions.count %></th>
+  <th><%= button_to t('tests._test.start'), start_test_path(test) %></th>
 </tr>
