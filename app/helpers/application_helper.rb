@@ -5,7 +5,7 @@ module ApplicationHelper
 
   def flash_message
     flash.map do |key, value|
-      content_tag :p, value, class: "#{BOOTSTRAP_CLASS[key.to_sym]}"
+      content_tag :p, value.html_safe, class: "#{BOOTSTRAP_CLASS[key.to_sym]}"
     end.join.html_safe
   end
 end
