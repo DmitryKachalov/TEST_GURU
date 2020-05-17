@@ -92,3 +92,16 @@ en:
       title: "Title"
     _test:
       start: "Start"
+  test_passages:
+    result:
+      header: '%{title} Test was completed!'
+      success: 'Congratulations! Your score is:'
+      failure: 'Review the topic. Your score is:'
+      score: '%{score} points'
+      back: 'Back to All Tests'
+    show:
+      header: 'Passing %{title} test'
+      question: 'Question %{number} of %{size}'
+    gist:
+      success: 'Gist was successfully created!'
+      failure: 'An error occured while saving Gist!'
