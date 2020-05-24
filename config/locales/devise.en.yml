@@ -73,3 +73,9 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  admin:
+    navbar:
+      to_admin_panel: "Admin panel"
+    shared:
+      navbar:
+        to_admin_panel: "Admin panel"

@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   # Юзер может создать несколько тестов
   has_many :tests_created, class_name: 'Test', foreign_key: :author_id, dependent: :nullify
-
+  has_many :gists, dependent: :destroy
   devise :database_authenticatable,
          :registerable,
          :recoverable,

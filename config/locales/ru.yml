@@ -26,7 +26,37 @@ ru:
       new_question: "Новый вопрос для теста"
       edit_question: "Изменить вопрос для теста"
 
+  tests:
+    index:
+      header: "Тесты"
+      questions_number: "Число вопросов"
+      level: "Уровень"
+      category: "Категория"
+      title: "Название"
+    _test:
+      start: "Пройти тест"
+
+  test_passages:
+    result:
+      header: 'Тест %{title} успешно завершен'
+      success: 'Поздравления! Ваше результат:'
+      failure: 'Рекомендуем повторить тему. Ваш результат:'
+      score: '%{score} процентов'
+      back: 'Назад к списку тестов'
+    show:
+      header: 'Прохождение %{title} теста'
+      question: 'Вопрос %{number} из %{size}'
+    gist:
+      success: 'Gist успешно сохранен! Ваш Gist <a href="%{gist}">здесь</a>"'
+      failure: 'Во время сохранения Gist произошла ошибка!'
+
   admin:
+    gists:
+      index:
+        header: 'Gist таблица'
+        author: 'Автор'
+        question: 'Вопрос'
+        hash: 'Хэш'
     answers:
       answer:
         view: "Смотреть"
@@ -85,11 +115,3 @@ ru:
         question: "Вопрос"
         new_question: "+ Новый вопрос"
         back: "Назад"
-  tests:
-    index:
-      header: "Тесты"
-      questions_number: "Число вопросов"
-      level: "Уровень"
-      category: "Категория"
-      title: "Название"
-      start: "Пройти тест"

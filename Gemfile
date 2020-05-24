@@ -32,11 +32,21 @@ gem 'devise', '~> 4.0'
 # LOCALIZATION
 
 gem 'rails-i18n', '~> 6.0.0'
-
-
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.4.1'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
+# NETWORKING
+gem 'faraday'
 
+# GITHUB
+gem "octokit", '~> 4.3.0'
+
+# ENV
+gem 'dotenv-rails', '~> 2.7.5'
+
+# Pagination
+gem 'will_paginate', '~> 3.3.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

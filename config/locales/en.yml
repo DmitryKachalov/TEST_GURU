@@ -23,8 +23,35 @@ en:
     question_header:
       new_question: "New question for test"
       edit_question: "Change question for test"
-
+  tests:
+    index:
+      header: "Tests"
+      questions_number: "Questions #"
+      level: "Level"
+      category: "Category"
+      title: "Title"
+    _test:
+      start: "Start"
+  test_passages:
+    result:
+      header: '%{title} Test was completed!'
+      success: 'Congratulations! Your score is:'
+      failure: 'Review the topic. Your score is:'
+      score: '%{score} points'
+      back: 'Back to All Tests'
+    show:
+      header: 'Passing %{title} test'
+      question: 'Question %{number} of %{size}'
+    gist:
+      success: 'Gist was successfully created! Open your <a href="%{gist}">Gist</a>'
+      failure: 'An error occured while saving Gist!'
   admin:
+    gists:
+      index:
+        header: "Gist table"
+        author: "Author"
+        question: "Question"
+        hash: "Hash"
     answers:
       answer:
         view: "View"
@@ -83,11 +110,3 @@ en:
         question: "Question"
         new_question: "+ New question"
         back: "Back"
-  tests:
-    index:
-      header: "Tests"
-      questions_number: "Questions #"
-      level: "Level"
-      category: "Category"
-      title: "Title"
-      start: "Start"
