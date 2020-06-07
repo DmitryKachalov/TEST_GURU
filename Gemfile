@@ -34,6 +34,7 @@ gem 'devise', '~> 4.0'
 gem 'rails-i18n', '~> 6.0.0'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.4.1'
+gem 'octicons_helper'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 # NETWORKING
