@@ -110,3 +110,5 @@ en:
         question: "Question"
         new_question: "+ New question"
         back: "Back"
+      form-inline:
+        submit:  'Ok'

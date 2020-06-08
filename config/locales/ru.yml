@@ -115,3 +115,5 @@ ru:
         question: "Вопрос"
         new_question: "+ Новый вопрос"
         back: "Назад"
+      form-inline:
+        submit:  'Ok'
