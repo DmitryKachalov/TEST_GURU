@@ -1,5 +1,12 @@
 <h1>Passing the <%= @test_passage.test.title %></h1>
-<p>Question: <%= @test_passage.current_question_number %> / <%= @test_passage.test_questions_count %></p>
+
+<%= content_tag :div,
+                t('.question', number: @test_passage.current_question_number, size: @test_passage.test_questions_count),
+                class: 'progress-bar bg-success progress-bar-striped',
+                data: { question_number: @test_passage.current_question_number,
+                        question_size: @test_passage.test_questions_count } %>
+
+
 <b>
   <%= @test_passage.current_question.body %>
 </b>
