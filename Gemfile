@@ -43,8 +43,7 @@ gem 'faraday'
 # GITHUB
 gem "octokit", '~> 4.3.0'
 
-# ENV
-gem 'dotenv-rails', '~> 2.7.5'
+
 
 # Pagination
 gem 'will_paginate', '~> 3.3.0'
@@ -57,6 +56,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # ENV
+  gem 'dotenv-rails'
 end
 
 group :development do
