@@ -13,6 +13,7 @@ module TESTGuru
     config.time_zone = 'Madrid'
     config.i18n.default_locale = :en
     config.i18n.available_locales = %i[en ru]
+    config.assets.initialize_on_precompile = false
 #    config.autoload_paths << "#{Rails.root}/lib/clients"
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
