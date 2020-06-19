@@ -23,6 +23,21 @@ en:
     question_header:
       new_question: "New question for test"
       edit_question: "Change question for test"
+
+  contacts_mailer:
+    contact_email:
+      subject: "TestGuru Project - Contact Form"
+
+  contacts:
+    new:
+      contact_us: "Contact Us"
+      name: "Your Name"
+      email: "Your Email"
+      body: "Message"
+      send_button: "Send"
+    create:
+      success: "Your message was successfully sent!"
+
   tests:
     index:
       header: "Tests"

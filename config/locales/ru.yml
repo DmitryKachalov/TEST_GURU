@@ -26,6 +26,20 @@ ru:
       new_question: "Новый вопрос для теста"
       edit_question: "Изменить вопрос для теста"
 
+  contacts_mailer:
+    contact_email:
+      subject: "TestGuru Project - Контактная Форма"
+
+  contacts:
+    new:
+      contact_us: "Обратная связь"
+      name: "Ваше имя"
+      email: "Ваш Email"
+      body: "Cообщение"
+      send_button: "Отправить"
+    create:
+      success: "Ваше сообщение успешно отправлено!"
+
   tests:
     index:
       header: "Тесты"
@@ -47,7 +61,7 @@ ru:
       header: 'Прохождение %{title} теста'
       question: 'Вопрос %{number} из %{size}'
     gist:
-      success: 'Gist успешно сохранен! Ваш Gist <a href="%{gist}">здесь</a>"'
+      success: "Gist успешно сохранен! Ваш Gist  %{url}"
       failure: 'Во время сохранения Gist произошла ошибка!'
 
   admin:

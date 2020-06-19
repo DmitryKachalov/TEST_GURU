@@ -13,16 +13,15 @@ Rails.application.configure do
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
-  config.action_mailer.default_url_options = { host: 'testguru-kachalov.herokuapp.com' }
-  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { host: 'blooming-journey-08378.herokuapp.com'}
+  #config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      address:                'smtp.sendgrid.net',
+      address:                'smtp.gmail.com',
       port:                   587,
-      user_name:              ENV['SENDGRID_USERNAME'],
-      password:               ENV['SENDGRID_PASSWORD'],
+      user_name:              ENV['SMTP_USERNAME'],
+      password:               ENV['SMTP_PASSWORD'],
       authentication:         'plain',
-      domain:                 'testguru-kachalov.herokuapp.com',
       enable_starttls_auto:   true
   }
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
@@ -73,9 +72,6 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "TEST_GURU_#{Rails.env}"
-
-  config.action_mailer.perform_caching = false
-
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
