@@ -1,8 +1,12 @@
  Category.create(
      [{ title: 'backend' }, { title: 'frontend' }])
 
- User.create!([{ name: 'admin', email: 'admin@mail.org', type: 'admin' }])
-                      { name: 'user', email: 'user@mail.org', role: 'user' }
+ users = Admin.create!([
+                           { first_name: 'System',
+                             last_name: 'God',
+                             email: 'makorsakova@gmail.com',
+                             password: 'qwe123' }
+                       ])
 
 tests = Test.create!(
     [{ title: 'HTML', level: 0, category: categories[1], author: users[0] },
