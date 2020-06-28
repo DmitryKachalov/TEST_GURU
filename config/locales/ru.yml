@@ -64,6 +64,15 @@ ru:
       success: "Gist успешно сохранен! Ваш Gist  %{url}"
       failure: 'Во время сохранения Gist произошла ошибка!'
 
+  feedback:
+    new:
+      header: "Форма обратной связи"
+      back: "Назад"
+    form:
+      send: "Отправить"
+    create:
+      message_sent: "Сообщение отправлено"
+
   admin:
     gists:
       index:
@@ -104,14 +113,21 @@ ru:
         edit: "Редактировать вопрос"
         back: "Назад"
     tests:
+      test:
+        view: "Смотреть"
+        edit: "Изменить"
+        delete: "Удалить"
+        confirm_delete: "Удалить?"
       edit:
         header: "Редактирование теста"
         back: "Назад"
       index:
+        new: "Новый тест"
         header: "Тесты"
         title: "Название"
         category: "Категория"
         level: "Уровень"
+        action: "Действия"
         questions_number: "Число вопросов"
         view: "Смотреть"
         delete: "Удалить"
@@ -122,6 +138,8 @@ ru:
         header: "Новый тест"
         back: "Назад"
       show:
+        title: "Title"
+        level: "Level"
         confirm_delete_question: "Удалить вопрос?"
         delete: "Удалить"
         edit: "Изменить"
@@ -131,3 +149,8 @@ ru:
         back: "Назад"
       form-inline:
         submit:  'Ok'
+    nav:
+      test_guru: "Test Guru"
+      to_admin_panel: "Admin Panel"
+      gist: "Gist"
+      logout: "Logout"

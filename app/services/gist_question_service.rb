@@ -12,6 +12,10 @@ class GistQuestionService
       @url = url
       @id = id
     end
+    #
+    # def html_url
+    #   %(<a href="#{url}">Gist</a>)
+    # end
 
     def success?
       true
@@ -21,9 +25,11 @@ class GistQuestionService
   def call
     response = @client.create_gist(gist_params)
     if response.html_url.present?
-      Success.new(url: response.html_url, id: response.id)
+      Success.new(url: response.url, id: response.id)
     end
   end
+
+
 
   private
 
