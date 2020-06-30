@@ -1,23 +1,29 @@
-document.addEventListener('turbolinks:load', () => {
-    const password = document.getElementById('user_password')
-    const passwordConfirmation = document.getElementById('user_password_confirmation')
+document.addEventListener('turbolinks:load', function() {
+    var passwordConfirm = document.querySelector('#user_password_confirmation');
 
-    const correctIcon = document.querySelector('.octicon.text-success')
-    const wrongIcon = document.querySelector('.octicon.text-danger')
-
-    const passwordCheck = () => {
-        if (passwordConfirmation.value === '') {
-            correctIcon.classList.add('hide')
-            wrongIcon.classList.add('hide')
-        } else if (passwordConfirmation.value === password.value) {
-            correctIcon.classList.remove('hide')
-            wrongIcon.classList.add('hide')
-        } else {
-            correctIcon.classList.add('hide')
-            wrongIcon.classList.remove('hide')
-        }
+    if (passwordConfirm) {
+        passwordConfirm.addEventListener('input', writePass)
     }
 
-    passwordConfirmation.addEventListener('input', () => passwordCheck())
-    password.addEventListener('input', () => passwordCheck())
-})
+    function writePass() {
+        var password = document.querySelector('#user_password');
+        var passwordConfirm = document.querySelector('#user_password_confirmation');
+
+        if (passwordConfirm.value == '') {
+            password.classList.remove('red-field');
+            password.classList.remove('green-field');
+            passwordConfirm.classList.remove('red-field');
+            passwordConfirm.classList.remove('green-field')
+        } else if (password.value == passwordConfirm.value) {
+            password.classList.add('green-field');
+            password.classList.remove('red-field');
+            passwordConfirm.classList.add('green-field');
+            passwordConfirm.classList.remove('red-field')
+        } else {
+            password.classList.add('red-field');
+            password.classList.remove('green-field');
+            passwordConfirm.classList.add('red-field');
+            passwordConfirm.classList.remove('green-field')
+        }
+    }
+});
