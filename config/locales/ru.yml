@@ -61,7 +61,7 @@ ru:
       header: 'Прохождение %{title} теста'
       question: 'Вопрос %{number} из %{size}'
     gist:
-      success: "Gist успешно сохранен! Ваш Gist  %{url}"
+      success: "Gist успешно сохранен! Ваш Gist"
       failure: 'Во время сохранения Gist произошла ошибка!'
 
   feedback:

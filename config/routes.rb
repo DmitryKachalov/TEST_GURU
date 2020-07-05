@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # delete :logout, to: 'sessions#destroy'
 
-  resources :contacts, only: %i[new create]
+  resources :feedback, only: %i[new create]
 
   resources :tests, only: :index do
       post :start, on: :member
@@ -29,5 +29,5 @@ Rails.application.routes.draw do
     resources :gists, only: :index
   end
 
-  resources :feedback, only: %i[new create]
+
 end

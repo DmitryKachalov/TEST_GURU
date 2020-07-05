@@ -58,7 +58,7 @@ en:
       header: 'Passing %{title} test'
       question: 'Question %{number} of %{size}'
     gist:
-      success: "Gist was successfully created! Open your %{gist} "
+      success: "Gist was successfully created! Open your "
       failure: 'An error occured while saving Gist!'
   feedback:
     new:
