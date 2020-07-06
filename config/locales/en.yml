@@ -108,6 +108,8 @@ en:
         new_answer: "+ New answer"
         edit: "Edit question"
         back: "Back"
+      question:
+        confirm_delete: "Delete?"
     tests:
       test:
         view: "View"

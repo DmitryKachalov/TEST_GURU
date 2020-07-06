@@ -112,6 +112,8 @@ ru:
         new_answer: "+ Новый ответ"
         edit: "Редактировать вопрос"
         back: "Назад"
+      question:
+        confirm_delete: "Удалить?"
     tests:
       test:
         view: "Смотреть"
