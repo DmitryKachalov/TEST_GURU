@@ -23,6 +23,21 @@ en:
     question_header:
       new_question: "New question for test"
       edit_question: "Change question for test"
+
+  contacts_mailer:
+    contact_email:
+      subject: "TestGuru Project - Contact Form"
+
+  contacts:
+    new:
+      contact_us: "Contact Us"
+      name: "Your Name"
+      email: "Your Email"
+      body: "Message"
+      send_button: "Send"
+    create:
+      success: "Your message was successfully sent!"
+
   tests:
     index:
       header: "Tests"
@@ -43,8 +58,17 @@ en:
       header: 'Passing %{title} test'
       question: 'Question %{number} of %{size}'
     gist:
-      success: 'Gist was successfully created! Open your <a href="%{gist}">Gist</a>'
+      success: "Gist was successfully created! Open your "
       failure: 'An error occured while saving Gist!'
+  feedback:
+    new:
+      header: "Leave your feedback"
+      back: "Back"
+    form:
+      send: "Send"
+    create:
+      message_sent: "Message sent"
+
   admin:
     gists:
       index:
@@ -84,15 +108,24 @@ en:
         new_answer: "+ New answer"
         edit: "Edit question"
         back: "Back"
+      question:
+        confirm_delete: "Delete?"
     tests:
+      test:
+        view: "View"
+        edit: "Edit"
+        delete: "Delete"
+        confirm_delete: "Delete?"
       edit:
         header: "Edit test"
         back: "Back"
       index:
+        new: "New test"
         header: "Tests"
         title: "Title"
         category: "Category"
         level: "Level"
+        action: "Actions"
         questions_number: "Questions"
         view: "View"
         delete: "Delete"
@@ -103,6 +136,8 @@ en:
         header: "New test"
         back: "Back"
       show:
+        title: "Title"
+        level: "Level"
         confirm_delete_question: "Delete question?"
         delete: "Delete"
         edit: "Edit"
@@ -112,3 +147,8 @@ en:
         back: "Back"
       form-inline:
         submit:  'Ok'
+    nav:
+      test_guru: "Test Guru"
+      to_admin_panel: "Admin Panel"
+      gist: "Gist"
+      logout: "Logout"

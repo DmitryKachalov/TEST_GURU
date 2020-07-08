@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   # delete :logout, to: 'sessions#destroy'
 
+  resources :feedback, only: %i[new create]
 
   resources :tests, only: :index do
       post :start, on: :member
@@ -27,5 +28,6 @@ Rails.application.routes.draw do
     end
     resources :gists, only: :index
   end
+
 
 end

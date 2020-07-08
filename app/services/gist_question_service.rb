@@ -1,42 +1,35 @@
 class GistQuestionService
-  def initialize(question, client = default_client)
+  include AbstractController::Translation
+
+  def initialize(user, question, client: default_client)
+    @user = user
     @question = question
     @test = @question.test
     @client = client
   end
 
-  class Success
-    attr_reader :url, :id
-
-    def initialize(url:, id:)
-      @url = url
-      @id = id
-    end
-
-    def success?
-      true
-    end
-  end
-
   def call
-    response = @client.create_gist(gist_params)
-    if response.html_url.present?
-      Success.new(url: response.html_url, id: response.id)
+    begin
+      result = @client.create_gist(gist_params)
+      if result.html_url.nil?
+        GistCallFailure.new(t('test_passages.gist.failure'))
+      else
+        save_gist!(result)
+        GistCallSuccess.new(result.html_url)
+      end
+    rescue Octokit::Error => e
+      GistCallFailure.new(e.message)
     end
   end
 
   private
 
-  def default_client
-    Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
-  end
-
   def gist_params
     {
-        "description": "A question about #{@test.title} from TestGuru",
-        "files": {
-            "test-guru-question.txt": {
-                "content": gist_content
+        description: "#{t('test_passages.gist.question_title')} '#{@test.title}'",
+        files: {
+            'question.txt' => {
+                content: gist_content
             }
         }
     }
@@ -46,5 +39,16 @@ class GistQuestionService
     content = [@question.body]
     content += @question.answers.pluck(:body)
     content.join('\n')
+  end
+
+  def default_client
+    Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
+  end
+
+  def save_gist!(result)
+    Gist.new(hash_id: result.id,
+             gist_url: result.html_url,
+             question: @question,
+             user: @user).save!
   end
 end

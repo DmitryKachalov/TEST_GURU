@@ -26,6 +26,20 @@ ru:
       new_question: "Новый вопрос для теста"
       edit_question: "Изменить вопрос для теста"
 
+  contacts_mailer:
+    contact_email:
+      subject: "TestGuru Project - Контактная Форма"
+
+  contacts:
+    new:
+      contact_us: "Обратная связь"
+      name: "Ваше имя"
+      email: "Ваш Email"
+      body: "Cообщение"
+      send_button: "Отправить"
+    create:
+      success: "Ваше сообщение успешно отправлено!"
+
   tests:
     index:
       header: "Тесты"
@@ -47,8 +61,17 @@ ru:
       header: 'Прохождение %{title} теста'
       question: 'Вопрос %{number} из %{size}'
     gist:
-      success: 'Gist успешно сохранен! Ваш Gist <a href="%{gist}">здесь</a>"'
+      success: "Gist успешно сохранен! Ваш Gist"
       failure: 'Во время сохранения Gist произошла ошибка!'
+
+  feedback:
+    new:
+      header: "Форма обратной связи"
+      back: "Назад"
+    form:
+      send: "Отправить"
+    create:
+      message_sent: "Сообщение отправлено"
 
   admin:
     gists:
@@ -89,15 +112,24 @@ ru:
         new_answer: "+ Новый ответ"
         edit: "Редактировать вопрос"
         back: "Назад"
+      question:
+        confirm_delete: "Удалить?"
     tests:
+      test:
+        view: "Смотреть"
+        edit: "Изменить"
+        delete: "Удалить"
+        confirm_delete: "Удалить?"
       edit:
         header: "Редактирование теста"
         back: "Назад"
       index:
+        new: "Новый тест"
         header: "Тесты"
         title: "Название"
         category: "Категория"
         level: "Уровень"
+        action: "Действия"
         questions_number: "Число вопросов"
         view: "Смотреть"
         delete: "Удалить"
@@ -108,6 +140,8 @@ ru:
         header: "Новый тест"
         back: "Назад"
       show:
+        title: "Title"
+        level: "Level"
         confirm_delete_question: "Удалить вопрос?"
         delete: "Удалить"
         edit: "Изменить"
@@ -117,3 +151,8 @@ ru:
         back: "Назад"
       form-inline:
         submit:  'Ok'
+    nav:
+      test_guru: "Test Guru"
+      to_admin_panel: "Admin Panel"
+      gist: "Gist"
+      logout: "Logout"

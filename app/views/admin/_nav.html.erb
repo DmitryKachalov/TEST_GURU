@@ -1,10 +1,10 @@
 <nav class="navbar navbar-light bg-light">
-  <%= link_to "Test guru", root_path, class: 'navbar-brand' %>
+  <%= link_to t('.test_guru'), root_path, class: 'navbar-brand' %>
 
   <span class="navbar-text">
     Welcome, <b><%= "#{current_user.first_name} #{current_user.last_name}" %></b> Guru
     | <%= link_to t('.to_admin_panel'), admin_tests_path %> |
-    |<%= link_to 'Gists', admin_gists_path, class: 'text-white' %> |
-    | <%= link_to 'Logout', destroy_user_session_path, method: :delete %> |
+    |<%= link_to t('.gist'), admin_gists_path %> |
+    | <%= link_to t('.logout'), destroy_user_session_path, method: :delete %> |
   </span>
 </nav>
