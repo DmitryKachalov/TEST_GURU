@@ -44,7 +44,7 @@ class BadgeControlService
     return if badge.control_param.to_s != ''
 
 
-    @test_passage.succesful? && badge.control_param == ''
+    @test_passage.successfully_completed? && badge.control_param == ''
   end
 
   def control_3(badge)
