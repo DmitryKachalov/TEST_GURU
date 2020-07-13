@@ -6,7 +6,7 @@
       Welcome, <b><%= "#{current_user.first_name} #{current_user.last_name}" %></b> Guru
       <%= link_to 'All Badges', badges_path, class: 'btn btn-warning' %>
       <% if current_user.admin? %>
-        | <%= link_to t('.badges'), admin_badges_path %>
+        | <%= link_to 'Create Badge', new_admin_badge_path, class: 'btn btn-success' %>
         | <%= link_to t('.gists'), admin_gists_path %>
         | <%= link_to t('.to_admin_panel'), admin_tests_path %>
       <% elsif current_user %>

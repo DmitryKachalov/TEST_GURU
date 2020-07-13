@@ -20,12 +20,12 @@
   <div class="container">
     <% if user_signed_in? %>
       <a class="p-2 text-dark">
-        <%= current_user.badges.where(control: 2).count %>
-        <%= image_tag(Badge.find_by(control: 2).picture, size: '20x20') if Badge.find_by(control: 2).present? %>
-        <%= current_user.badges.where(control: 3).count %>
-        <%= image_tag(Badge.find_by(control: 3).picture, size: '20x20') if Badge.find_by(control: 3).present? %>
-        <%= current_user.badges.where(control: 1).count %>
-        <%= image_tag(Badge.find_by(control: 1).picture, size: '20x20') if Badge.find_by(control: 1).present? %>
+        <%= current_user.badges.where(control: :first_try).count %>
+        <%= image_tag(Badge.find_by(control: :first_try).picture, size: '20x20') if Badge.find_by(control: :first_try).present? %>
+        <%= current_user.badges.where(control: :all_in_level).count %>
+        <%= image_tag(Badge.find_by(control: :all_in_level).picture, size: '20x20') if Badge.find_by(control: :all_in_level).present? %>
+        <%= current_user.badges.where(control: :all_in_category).count %>
+        <%= image_tag(Badge.find_by(control: :all_in_category).picture, size: '20x20') if Badge.find_by(control: :all_in_category).present? %>
       </a>
     <% end %>
   </div>

@@ -21,14 +21,14 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :gists, only: :index
+    resources :badges
     resources :tests do
       patch :update_inline, on: :member
       resources :questions, shallow: true, except: :index do
         resources :answers, shallow: true, except: :index
       end
     end
-    resources :gists, only: :index
-    resources :badges, only: %i[index new create]
   end
 
 
