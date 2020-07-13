@@ -6,7 +6,7 @@ class BadgeControlService
   end
 
   def call
-    Badge.select{|badge| send("control_#{badge.control}", badge)}
+    Badge.select{|badge| send(badge.control, badge)}
   end
 
   def user_tests
