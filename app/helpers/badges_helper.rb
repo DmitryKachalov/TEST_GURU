@@ -1,7 +1,7 @@
 module BadgesHelper
   def control_collection
-    [['После прохождения всех тестов категории', 1],
-     ['После прохождения теста с первой попытки', 2],
-     ['После прохождения теста определённого уровня', 3]]
+    [[I18n.t('helpers.badges_helper.FirstRule'), 'FirstRule'],
+     [I18n.t('helpers.badges_helper.CompleteLevelRule'), 'CompleteLevelRule'],
+     [I18n.t('.CompleteCategoryRule'), 'CompleteCategoryRule']]
   end
 end

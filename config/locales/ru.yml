@@ -26,6 +26,11 @@ ru:
       new_question: "Новый вопрос для теста"
       edit_question: "Изменить вопрос для теста"
 
+    badges_helper:
+      FirstRule: "Завершить тест с первой попытки"
+      CompleteLevelRule: "Завершить все тесты заданного уровня"
+      CompleteCategoryRule: "Завершить все тесты указанной категории"
+
   contacts_mailer:
     contact_email:
       subject: "TestGuru Project - Контактная Форма"
@@ -156,3 +161,14 @@ ru:
       to_admin_panel: "Admin Panel"
       gist: "Gist"
       logout: "Logout"
+    rule_badges:
+      index:
+        header: "Все типы бейджей"
+        new_badge: "+ Новый бейдж"
+      new:
+        header: "Создать новый бейдж"
+      form:
+        picture: "Иконка"
+        name: "Название бейджа"
+        rule: "Правило"
+        create_badge: "Создать бейдж"

@@ -23,6 +23,11 @@ en:
     question_header:
       new_question: "New question for test"
       edit_question: "Change question for test"
+    badges_helper:
+      FirstRule: "Complete test with the 1st attempt"
+      CompleteLevelRule: "Complete all tests of a given level"
+      CompleteCategoryRule: "Complete all tests of a given category"
+
 
   contacts_mailer:
     contact_email:
@@ -76,6 +81,10 @@ en:
         author: "Author"
         question: "Question"
         hash: "Hash"
+
+    badges:
+
+
     answers:
       answer:
         view: "View"
@@ -152,3 +161,14 @@ en:
       to_admin_panel: "Admin Panel"
       gist: "Gist"
       logout: "Logout"
+    rule_badges:
+      index:
+        header: "Existing badges"
+        new_badge: "+ New badge"
+      new:
+        header: "Create new badge"
+      form:
+        picture: "Picture"
+        name: "Name"
+        rule: "Rule"
+        create_badge: "Create badge"

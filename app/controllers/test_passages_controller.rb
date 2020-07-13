@@ -11,7 +11,7 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
-      badges = BadgeControlService.new(@test_passage).call
+      badges = BadgesService.new(@test_passage).call
       current_user.badges << badges
 
       TestsMailer.completed_test(@test_passage).deliver_now
