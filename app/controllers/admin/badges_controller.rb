@@ -1,31 +1,54 @@
 class Admin::BadgesController < Admin::BaseController
-
-  before_action :set_all_rule_badges
-
-  def index; end
+  before_action :set_badge, only: [:edit, :update, :destroy]
+  before_action :admin_permissions
 
   def new
     @badge = Badge.new
   end
 
-  def create
-    @badge = Badge.build(badge_params)
+  def edit
 
-    if @badge.save
-      redirect_to admin_badges_path, notice: t('.create_success')
+  end
+
+  def update
+    if @badge.update(badge_params)
+      flash[:success] = 'Badge updated!'
+      redirect_to badges_path
     else
-      flash[:alert] = t('.create_failed')
+      render :edit
+    end
+  end
+
+  def create
+    @badge = Badge.new(badge_params)
+    if @badge.save
+      flash[:success] = 'Badge created!'
+      redirect_to badges_path
+    else
+      flash[:error] = 'Not created!'
       render :new
     end
   end
 
+  def destroy
+    @badge.destroy
+    redirect_to badges_path
+  end
+
   private
 
-  def set_all_rule_badges
-    @badges = Badge.all
+  def admin_permissions
+    unless current_user.admin?
+      redirect_to root_path
+    end
+  end
+
+  def set_badge
+    @badge = Badge.find(params[:id])
   end
 
   def badge_params
-    params.require(:badge).permit(:picture, :name, :type, :filter_value)
+    params.require(:badge).permit(:name, :picture, :control, :control_param)
   end
+
 end

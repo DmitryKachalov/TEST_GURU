@@ -1,7 +1,7 @@
 module BadgesHelper
   def control_collection
-    [[I18n.t('helpers.badges_helper.FirstRule'), 'FirstRule'],
-     [I18n.t('helpers.badges_helper.CompleteLevelRule'), 'CompleteLevelRule'],
-     [I18n.t('.CompleteCategoryRule'), 'CompleteCategoryRule']]
+    [[I18n.t('helpers.badges_helper.FirstRule'), :all_in_category],
+     [I18n.t('helpers.badges_helper.CompleteLevelRule'), :first_try],
+     [I18n.t('helpers.badges_helper.CompleteCategoryRule'), :all_in_category]]
   end
 end

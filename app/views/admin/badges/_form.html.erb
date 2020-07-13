@@ -1,30 +1,20 @@
-
-<%= form_with model: [:admin, @badge], local: true do |form| %>
-  <div class="mb-2">
-    <%= form.label t('.picture') %>
-    <input class="form-control" type="url" name="badge[picture]" id="badge_picture">
-  </div>
-  <div class="mb-2">
-    <%= form.label t('.name') %>
-    <%= form.text_field :name, class: "form-control" %>
-  </div>
-  <div class="row mb-3">
-    <div class="col">
-      <%= form.label t('.rule') %>
-      <%= form.select :type,
-                      [[t('.FirstRule'), 'FirstAttemptRule'],
-                       [t('.CompleteLevelRule'), 'CompleteLevelRule'],
-                       [t('.CompleteCategoryRule'), 'CompleteCategoryRule']],
-                      { prompt: true },
-                      { class: "form-control" } %>
-    </div>
-    <div class="col">
-      <%= form.label t('.value') %>
-      <%= form.text_field :filter_value, class: "form-control" %>
-    </div>
-  </div>
-  <p>
-    <%= form.submit t('.create_badge'), type: "submit", class: "btn btn-primary" %>
-  </p>
+<%= form_with model: [:admin, @badge], local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :picture %>
+  <%= f.text_field :picture %>
+  <br>
+  <%= f.label :control %>
+  <%= f.select :control, control_collection, include_blank: 'Выберите' %>
+  <br>
+  <%= f.label :control_param %>
+  <%= f.text_field :control_param %>
+  <br>
+  <%= f.submit %>
 <% end %>
-© 2020 GitHub, Inc.
+
+<br>
+copper image: https://www.pngfind.com/pngs/m/595-5958214_50-cent-png-coin-transparent-png.png <br>
+silver image: https://www.pngfind.com/pngs/m/187-1879553_old-dollar-silver-coin-png-old-silver-coin.png <br>
+gold image: https://banner2.kisspng.com/20171207/e73/hd-gold-5a29aa27da8e69.8903764815126799758952.jpg
