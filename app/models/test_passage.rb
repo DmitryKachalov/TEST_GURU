@@ -7,6 +7,11 @@ class TestPassage < ApplicationRecord
 
 
   before_validation :before_validation_set_current_question, on: %i[create update]
+  before_update :before_update_test_passed
+
+  def before_update_test_passed
+    self.passed = successfully_completed? if completed?
+  end
 
 
   def completed?
@@ -15,6 +20,7 @@ class TestPassage < ApplicationRecord
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
+
     save!
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_17_223029) do
+ActiveRecord::Schema.define(version: 2020_07_13_161717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,24 @@ ActiveRecord::Schema.define(version: 2020_05_17_223029) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "badge_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "badge_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["badge_id"], name: "index_badge_users_on_badge_id"
+    t.index ["user_id"], name: "index_badge_users_on_user_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "name"
+    t.text "picture"
+    t.string "control_param"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "control"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -57,6 +75,7 @@ ActiveRecord::Schema.define(version: 2020_05_17_223029) do
     t.datetime "updated_at", null: false
     t.bigint "current_question_id"
     t.integer "correct_questions", default: 0
+    t.boolean "passed"
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"
@@ -100,6 +119,8 @@ ActiveRecord::Schema.define(version: 2020_05_17_223029) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "badge_users", "badges"
+  add_foreign_key "badge_users", "users"
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"
   add_foreign_key "questions", "tests"

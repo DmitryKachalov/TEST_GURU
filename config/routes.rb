@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # delete :logout, to: 'sessions#destroy'
 
   resources :feedback, only: %i[new create]
+  resources :badges, only: :index
 
   resources :tests, only: :index do
       post :start, on: :member
@@ -20,13 +21,14 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :gists, only: :index
+    resources :badges
     resources :tests do
       patch :update_inline, on: :member
       resources :questions, shallow: true, except: :index do
         resources :answers, shallow: true, except: :index
       end
     end
-    resources :gists, only: :index
   end
 
 
