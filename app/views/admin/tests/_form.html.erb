@@ -16,5 +16,9 @@
     <%= form.collection_select :category_id, Category.all, :id, :title, promt: true %>
   </p><br>
 
+  <p>
+    <%= form.number_field :time_limit, id: :time_limit, min: 0, class: 'form-control form-behind-checkbox', placeholder: 'seconds' %>
+  </p>
+
   <p><%= form.submit %></p>
 <% end %>

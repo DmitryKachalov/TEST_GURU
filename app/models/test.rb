@@ -13,7 +13,7 @@ class Test < ApplicationRecord
   validates :title, presence: true,
             uniqueness: { scope: :level,
                           message: 'Title and Level must be unique' }
-  validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :level, :time_limit, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   default_scope { order(title: :desc) }
   scope :level, ->(level) { where(level: level) }
@@ -26,5 +26,9 @@ class Test < ApplicationRecord
   def self.sort_by_category(category_title)
     by_category(category_title)
       .pluck(:title)
+  end
+
+  def time_limited?
+    time_limit.positive?
   end
 end
