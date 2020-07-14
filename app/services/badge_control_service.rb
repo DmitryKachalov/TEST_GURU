@@ -9,7 +9,13 @@ class BadgeControlService
   end
 
   def call
-    Badge.select{|badge| send(badge.control, badge)}
+    @user.badges << select_badges
+  end
+
+  def select_badges
+    Badge.all.select do |badge|
+      send(badge.control, badge.control_param)
+    end
   end
 
   def user_tests
