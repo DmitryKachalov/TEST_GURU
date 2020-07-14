@@ -4,7 +4,7 @@ class Badge < ApplicationRecord
 
   validates :name, presence: true
   validates :picture, presence: true
-  validates :control, presence: true
+  validates :control, inclusion: { in: BadgeControlService::RULE_TYPES }
   validates :control_param, uniqueness: { scope: :control }
 
 end

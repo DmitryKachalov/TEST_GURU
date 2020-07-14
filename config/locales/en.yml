@@ -24,9 +24,9 @@ en:
       new_question: "New question for test"
       edit_question: "Change question for test"
     badges_helper:
-      FirstRule: "Complete test with the 1st attempt"
-      CompleteLevelRule: "Complete all tests of a given level"
-      CompleteCategoryRule: "Complete all tests of a given category"
+      first_try: "Complete test with the 1st attempt"
+      all_in_level: "Complete all tests of a given level"
+      all_in_category: "Complete all tests of a given category"
 
 
   contacts_mailer:

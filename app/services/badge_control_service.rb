@@ -1,7 +1,10 @@
 class BadgeControlService
 
+  RULE_TYPES = %w[all_in_category first_try all_in_level].freeze
+
+
   def initialize(test_passage)
-    @test_passage = test_passage
+    @test = test_passage.test
     @user = test_passage.user
   end
 
@@ -15,59 +18,59 @@ class BadgeControlService
 
   private
 
-  def all_in_category(badge)
-    return if badge.control_param.to_s != @test_passage.test.category.title
+  def all_in_category(category_name)
+    return false if @test.category.title != category_name
 
-    tests_category = Test.joins(:category)
-                         .where(categories: {title: badge.control_param.to_s})
-                         .pluck(:id)
+    successful_tests_count = successful_tests_in_category.uniq.count
 
-    user_tests_category = user_tests.joins(test: :category)
-                              .where(categories: {title: badge.control_param.to_s})
-                              .pluck(:test_id)
-    user_similar_badges_count = @user.badges.where(id: badge.id).count
+    return false unless successful_tests_count.positive?
 
-    expected_count = user_similar_badges_count + 1
+    Test.by_category(@test.category.title).uniq.count == successful_tests_count
+  end
 
-    map_test_id_to_count = {}
+  def first_try(test)
+    return false if @test.title != test
 
-    user_tests_category.each do |test_id|
-      map_test_id_to_count[test_id] = map_test_id_to_count.fetch(test_id, 0) + 1
-      # every_test_passed_least_expected_count
-      tests_category.all? { |test_id| map_test_id_to_count.fetch(test_id, 0) >= expected_count }
+    @user.test_passages.where(test_id: @test.id).where('success = ?', true).count == 1
+  end
+
+  def all_in_level(level)
+    return false if @test.level != level.to_i
+
+    successful_tests_count = successful_tests_on_level.uniq.count
+    return false unless successful_tests_count.positive?
+
+    Test.by_level(@test.level).uniq.count == successful_tests_count
+  end
+
+
+  def successful_tests_in_category
+    badge = @user.badges.where(control: "all_in_category").last
+
+    scope = successful_tests.where(category_id: @test.category.id)
+
+    badged_tests(badge, scope)
+  end
+
+  def successful_tests_on_level
+    badge = @user.badges.where(control: "all_in_level").last
+
+    scope = successful_tests.where(level: @test.level)
+
+    badged_tests(badge, scope)
+  end
+
+  def badged_tests(badge, scope)
+    if badge
+      badge_users = BadgeUser.where(user_id: @user.id, badge_id: badge.id).last
+      scope.where("test_passages.created_at > ?", badge_users.created_at)
+    else
+      scope
     end
   end
 
-  def first_try(badge)
-    return if badge.control_param.to_s != ''
-
-
-    @test_passage.successfully_completed? && badge.control_param == ''
-  end
-
-  def all_in_level(badge)
-    return if badge.control_param.to_i != @test_passage.test.level
-    tests_with_level = Test.where(level: badge.control_param.to_i)
-                           .order(id: :desc)
-                           .pluck(:id)
-
-    user_tests_with_level = user_tests.joins(:test)
-                                .where(tests: {level: badge.control_param.to_i})
-                                .order(test_id: :desc)
-                                .pluck(:test_id)
-
-    user_similar_badges_count = @user.badges.where(id: badge.id).count
-
-    expected_count = user_similar_badges_count + 1
-
-    map_test_id_to_count = {}
-
-    user_tests_with_level.each do |test_id|
-      map_test_id_to_count[test_id] = map_test_id_to_count.fetch(test_id, 0) + 1
-    end
-
-    # every_test_passed_least_expected_count
-    tests_with_level.all? { |test_id| map_test_id_to_count.fetch(test_id, 0) >= expected_count }
+  def successful_tests
+    @user.tests.merge(TestPassage.where('success = ?', true))
   end
 end
 

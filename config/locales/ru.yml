@@ -27,9 +27,9 @@ ru:
       edit_question: "Изменить вопрос для теста"
 
     badges_helper:
-      FirstRule: "Завершить тест с первой попытки"
-      CompleteLevelRule: "Завершить все тесты заданного уровня"
-      CompleteCategoryRule: "Завершить все тесты указанной категории"
+      first_try: "Завершить тест с первой попытки"
+      all_in_level: "Завершить все тесты заданного уровня"
+      all_in_category: "Завершить все тесты указанной категории"
 
   contacts_mailer:
     contact_email:
