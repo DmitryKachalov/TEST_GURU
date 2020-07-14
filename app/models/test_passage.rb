@@ -8,6 +8,7 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_current_question, on: %i[create update]
   before_update :before_update_test_passed
+  before_update :before_update_check_time_limit
 
   def before_update_test_passed
     self.passed = successfully_completed? if completed?
@@ -40,6 +41,10 @@ class TestPassage < ApplicationRecord
     test.questions.order(:id).where('id <= ?', current_question.id).count
   end
 
+  def time_left
+    (created_at.to_i + test.time_limit) - Time.current.to_i
+  end
+
   private
   
   def before_validation_set_current_question
@@ -64,5 +69,11 @@ class TestPassage < ApplicationRecord
 
   def questions_collection
     test.questions.order(:id).where('id > ?', current_question.id)
+  end
+
+  def before_update_check_time_limit
+    return unless test.time_limited?
+
+    self.current_question = nil if time_left <= 0
   end
 end

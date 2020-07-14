@@ -3,5 +3,6 @@
   <th><%= test.title %></th>
   <th><%= test_level(test) %></th>
   <th><%= test.questions.count %></th>
+  <td><%= format_seconds(test.time_limit) %></td>
   <th><%= button_to t('tests._test.start'), start_test_path(test) %></th>
 </tr>

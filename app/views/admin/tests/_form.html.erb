@@ -1,20 +1,25 @@
-<%= form_with model: [:admin, @test], local: true do |form|  %>
+<%= form_with model: [:admin, @test], local: true, class: 'border border-light' do |form|  %>
   <%= render 'shared/errors', resource: @test %>
 
-  <p>
+  <div class="form-group col-md-4 mt-2">
     <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p><br>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
 
-  <p>
+  <div class="form-group col-md-4">
     <%= form.label :level %><br>
-    <%= form.number_field :level %>
-  </p><br>
+    <%= form.number_field :level, class: 'form-control' %>
+  </div>
 
-  <p>
+  <div class="form-group col-md-4">
     <%= form.label :category_id %><br>
     <%= form.collection_select :category_id, Category.all, :id, :title, promt: true %>
-  </p><br>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= form.label :time_limit %><br>
+    <%= form.number_field :time_limit, id: :time_limit, min: 0, class: 'form-control form-behind-checkbox', placeholder: 'seconds' %>
+  </div>
 
   <p><%= form.submit %></p>
 <% end %>

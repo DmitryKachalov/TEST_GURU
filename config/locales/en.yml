@@ -50,6 +50,7 @@ en:
       level: "Level"
       category: "Category"
       title: "Title"
+      time_limit: "Time left"
     _test:
       start: "Start"
   test_passages:
@@ -141,6 +142,7 @@ en:
         edit: "Edit"
         confirm_delete_test: "Delete test?"
         new_test: "+ New test"
+        time_limit: "Time left"
       new:
         header: "New test"
         back: "Back"

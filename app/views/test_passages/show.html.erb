@@ -10,8 +10,17 @@
 <b>
   <%= @test_passage.current_question.body %>
 </b>
+<% if @test_passage.test.time_limited? %>
+  <div class="text-center">
+    <%= t('.time_left') + ': ' %>
+    <%= content_tag :span,
+                    format_seconds(@test_passage.time_left),
+                    class: 'time-counter',
+                    data: { time_left: @test_passage.time_left} %>
+  </div>
+<% end %>
 
-<%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+<%= form_with url: test_passage_path(@test_passage),  html: { class: 'form-check test-passage-form' }, local: true, method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
   <%= b.check_box id: "answer_ids_#{b.object.id}" %>
   <%= b.label %>
