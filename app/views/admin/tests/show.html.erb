@@ -1,32 +1,33 @@
-<p>
-  <strong><%= t('.title') %></strong>
-  <%= @test.title %>
-</p>
+<div class="container">
+  <p>
+      <strong><%= t('.title') %></strong>
+      <%= @test.title %>
+    </p>
 
-<p>
-  <strong><%= t('.level') %></strong>
-  <%= test_level(@test) %>
-</p>
+    <p>
+      <strong><%= t('.level') %></strong>
+      <%= test_level(@test) %>
+    </p>
 
-<h2><%= t('.question') %></h2>
+    <h2><%= t('.question') %></h2>
 
-<%= link_to t('.new_question'), new_admin_test_question_path(@test) %>
+    <%= link_to t('.new_question'), new_admin_test_question_path(@test) %>
 
-<ol>
-  <%= render @questions %>
-</ol>
+    <ol>
+      <%= render @questions %>
+    </ol>
 
-<div>
-  <% if @test.time_limit > 0 %>
-    <h3 class="mb-4"><%= t('.time_limit') %>: <%= format_seconds(@test.time_limit) %></h3>
-  <% end %>
+    <div>
+      <% if @test.time_limit > 0 %>
+        <h3 class="mb-4"><%= t('.time_limit') %>: <%= format_seconds(@test.time_limit) %></h3>
+      <% end %>
+    </div>
+
+
+
+    <%= link_to t('.edit'), edit_admin_test_path(@test) %> |
+    <%= link_to t('.back'), admin_tests_path %>
 </div>
-
-
-
-<%= link_to t('.edit'), edit_admin_test_path(@test) %> |
-<%= link_to t('.back'), admin_tests_path %>
-
 
 
 

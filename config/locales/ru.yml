@@ -52,6 +52,7 @@ ru:
       level: "Уровень"
       category: "Категория"
       title: "Название"
+      time_limit: "Лимит времени"
     _test:
       start: "Пройти тест"
 
@@ -141,6 +142,7 @@ ru:
         edit: "Изменить"
         confirm_delete_test: "Удалить тест?"
         new_test: "+ Новый тест"
+        time_limit: "Лимит времени"
       new:
         header: "Новый тест"
         back: "Назад"
